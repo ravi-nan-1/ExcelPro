@@ -55,11 +55,11 @@ export default function FormulaPage({ params }: Props) {
             <CardTitle>Step-by-Step Tutorial</CardTitle>
           </CardHeader>
           <CardContent>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {formula.steps.map((step, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>{step}</span>
+                  <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <span className="text-sm">{step}</span>
                 </li>
               ))}
             </ul>
