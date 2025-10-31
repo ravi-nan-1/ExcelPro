@@ -6,15 +6,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import ExcelSimulator from '@/components/excel/excel-simulator';
 import { CheckCircle, Copy, Check } from 'lucide-react';
-import { useState } from 'react';
+import { useState, use } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 // NOTE: generateMetadata and generateStaticParams are removed because they are only supported in Server Components.
 // This component is now a Client Component to handle the copy-to-clipboard state.
 
-export default function FormulaPage({ params }: { params: { slug: string } }) {
-  const formula = getFormulaBySlug(params.slug);
+export default function FormulaPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const formula = getFormulaBySlug(slug);
   const [isCopied, setIsCopied] = useState(false);
 
   if (!formula) {
@@ -56,7 +57,7 @@ export default function FormulaPage({ params }: { params: { slug: string } }) {
             </ul>
           </CardContent>
         </Card>
-
+        
         <Card>
           <CardHeader className="p-4">
             <CardTitle className="text-xl">Syntax</CardTitle>
