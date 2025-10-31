@@ -1,9 +1,8 @@
-'use server';
-
 import { formulas, getFormulaBySlug } from '@/lib/formulas';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import FormulaPageClient from './FormulaPageClient';
+import React from 'react';
 
 export function generateStaticParams() {
   return formulas.map((formula) => ({
@@ -11,7 +10,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function FormulaPage({ params }: { params: { slug: string } }) {
+export default async function FormulaPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const formula = getFormulaBySlug(slug);
 
