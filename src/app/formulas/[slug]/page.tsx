@@ -48,19 +48,29 @@ export default function FormulaPage({ params }: Props) {
         <h1 className="text-4xl font-bold mt-4 font-headline">{formula.name} Function</h1>
         <p className="text-lg text-muted-foreground mt-2">{formula.description}</p>
       </header>
+      
+      <div className="space-y-8">
+        <Card>
+            <CardHeader>
+                <CardTitle>Interactive Demo</CardTitle>
+                <CardDescription>Watch the formula in action.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <ExcelSimulator simulationKey={formula.simulationKey} />
+            </CardContent>
+        </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Syntax</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <code className="bg-muted text-muted-foreground p-4 rounded-md block font-mono text-sm">
-            {formula.syntax}
-          </code>
-        </CardContent>
-      </Card>
-
-      <div className="grid md:grid-cols-2 gap-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Syntax</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <code className="bg-muted text-muted-foreground p-4 rounded-md block font-mono text-sm">
+              {formula.syntax}
+            </code>
+          </CardContent>
+        </Card>
+        
         <Card>
           <CardHeader>
             <CardTitle>Step-by-Step Tutorial</CardTitle>
@@ -76,16 +86,7 @@ export default function FormulaPage({ params }: Props) {
             </ul>
           </CardContent>
         </Card>
-        
-        <Card className="overflow-hidden">
-          <CardHeader>
-            <CardTitle>Interactive Simulator</CardTitle>
-            <CardDescription>Watch the formula in action.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ExcelSimulator simulationKey={formula.simulationKey} />
-          </CardContent>
-        </Card>
+
       </div>
     </div>
   );
