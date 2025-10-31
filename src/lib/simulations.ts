@@ -10,6 +10,12 @@ export type SimulationFunction = (helpers: SimulationHelpers) => Promise<void>;
 
 const todayDate = new Date().toLocaleDateString();
 
+// Default placeholder for new simulations
+const sim_placeholder: SimulationFunction = async ({ setCell }) => {
+  setCell(1, 1, 'Coming');
+  setCell(1, 2, 'Soon!');
+};
+
 const sim_sum: SimulationFunction = async ({ wait, typeText, setCell, setHighlightedCells }) => {
   setCell(1, 1, '10');
   setCell(2, 1, '20');
@@ -81,7 +87,7 @@ const sim_trim: SimulationFunction = async ({ wait, typeText, setCell }) => {
 
 const sim_if: SimulationFunction = async ({ wait, typeText, setCell }) => {
   setCell(1, 1, '75');
-  setCell(1, 2, '40');
+  setCell(2, 1, '40');
   await wait(500);
   await typeText(1, 3, '=IF(A1>50, "Pass", "Fail")');
   await wait(1000);
@@ -102,10 +108,45 @@ export const simulations = {
   sum: sim_sum,
   average: sim_average,
   vlookup: sim_vlookup,
-  concatenate: sim_concatenate,
   trim: sim_trim,
   if: sim_if,
   today: sim_today,
+
+  // New Stubs
+  max: sim_placeholder,
+  min: sim_placeholder,
+  count: sim_placeholder,
+  counta: sim_placeholder,
+  round: sim_placeholder,
+  roundup: sim_placeholder,
+  rounddown: sim_placeholder,
+  concat: sim_concatenate, // Re-using because it's similar
+  textjoin: sim_placeholder,
+  upper: sim_placeholder,
+  lower: sim_placeholder,
+  proper: sim_placeholder,
+  left: sim_placeholder,
+  right: sim_placeholder,
+  hlookup: sim_placeholder,
+  index_match: sim_placeholder,
+  xlookup: sim_placeholder,
+  indirect: sim_placeholder,
+  now: sim_placeholder,
+  datedif: sim_placeholder,
+  year: sim_placeholder,
+  month: sim_placeholder,
+  text_weekday: sim_placeholder,
+  'nested_if': sim_placeholder,
+  and: sim_placeholder,
+  or: sim_placeholder,
+  rank: sim_placeholder,
+  subtotal: sim_placeholder,
+  unique: sim_placeholder,
+  filter: sim_placeholder,
+  pmt: sim_placeholder,
+  sln: sim_placeholder,
+  npv: sim_placeholder,
+  irr: sim_placeholder,
 };
 
 export type SimulationKey = keyof typeof simulations;
