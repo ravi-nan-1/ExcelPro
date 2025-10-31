@@ -51,27 +51,6 @@ export default function FormulaPage({ params }: Props) {
       
       <div className="space-y-8">
         <Card>
-            <CardHeader>
-                <CardTitle>Interactive Demo</CardTitle>
-                <CardDescription>Watch the formula in action.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <ExcelSimulator simulationKey={formula.simulationKey} />
-            </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Syntax</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <code className="bg-muted text-muted-foreground p-4 rounded-md block font-mono text-sm">
-              {formula.syntax}
-            </code>
-          </CardContent>
-        </Card>
-        
-        <Card>
           <CardHeader>
             <CardTitle>Step-by-Step Tutorial</CardTitle>
           </CardHeader>
@@ -87,6 +66,26 @@ export default function FormulaPage({ params }: Props) {
           </CardContent>
         </Card>
 
+        <Card>
+          <CardHeader>
+            <CardTitle>Syntax</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <code className="bg-muted text-muted-foreground p-4 rounded-md block font-mono text-sm">
+              {formula.syntax}
+            </code>
+          </CardContent>
+        </Card>
+
+        <Card>
+            <CardHeader>
+                <CardTitle>Interactive Demo</CardTitle>
+                <CardDescription>Watch the formula in action.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <ExcelSimulator simulationKey={formula.simulationKey} />
+            </CardContent>
+        </Card>
       </div>
     </div>
   );
