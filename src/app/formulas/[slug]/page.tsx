@@ -19,18 +19,20 @@ export default async function FormulaPage({ params }: { params: { slug: string }
   }
 
   return (
-    <div className="space-y-8">
-      <header>
-        <div className="flex items-center gap-4">
-          <Badge variant="secondary">{formula.category}</Badge>
-          <Badge variant="outline">{formula.subcategory}</Badge>
-        </div>
-        <h1 className="text-4xl font-bold mt-4 font-headline">{formula.name} Function</h1>
-        <p className="text-lg text-muted-foreground mt-2">{formula.description}</p>
-      </header>
-      
-      <FormulaPageClient formula={formula} />
+    <div className="container mx-auto px-4 md:px-6">
+      <div className="space-y-8">
+        <header>
+          <div className="flex items-center gap-4">
+            <Badge variant="secondary">{formula.category}</Badge>
+            <Badge variant="outline">{formula.subcategory}</Badge>
+          </div>
+          <h1 className="text-4xl font-bold mt-4 font-headline">{formula.name} Function</h1>
+          <p className="text-lg text-muted-foreground mt-2">{formula.description}</p>
+        </header>
+        
+        <FormulaPageClient formula={formula} />
 
+      </div>
     </div>
   );
 }
