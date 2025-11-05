@@ -11,7 +11,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourwebsite.com';
 const siteImageUrl = `${siteUrl}/images/excel-learning-preview.png`;
 
 export const metadata: Metadata = {
-  title: 'Learn Excel Formulas with Interactive Simulations & Animations | ExcelPro',
+  title: 'Learn Excel Formulas with Interactive Simulations & Animations | Excel Skill Trainer',
   description: 'Master Excel formulas with step-by-step interactive simulations and visual animations. Learn functions like VLOOKUP, IF, SUMIF, INDEX MATCH, and more — perfect for beginners to advanced Excel users.',
   keywords: [
     'learn excel formulas',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     'excel function trainer',
     'excel learning website',
     'excel skill builder',
-    'free excel learning platform',
+    'free excel learning platform'
   ],
   authors: [{ name: 'ExcelPro' }],
   robots: {
@@ -77,7 +77,7 @@ export default function RootLayout({
   const jsonLd = {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "ExcelPro",
+      "name": "Excel Skill Trainer",
       "operatingSystem": "All",
       "applicationCategory": "EducationalApplication",
       "description": "Interactive Excel learning tool with animations and simulations to master Excel formulas easily.",
